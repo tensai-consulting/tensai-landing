@@ -1,2 +1,0 @@
-# tensai-landing
-landingpage

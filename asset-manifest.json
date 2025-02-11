@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tensai-landing/static/css/main.3b23a849.css",
-    "main.js": "/tensai-landing/static/js/main.eb295c5f.js",
-    "static/js/488.0f11a6c2.chunk.js": "/tensai-landing/static/js/488.0f11a6c2.chunk.js",
-    "static/media/logo.png": "/tensai-landing/static/media/logo.675e7a6a76e11fb6b9ca.png",
-    "index.html": "/tensai-landing/index.html",
-    "main.3b23a849.css.map": "/tensai-landing/static/css/main.3b23a849.css.map",
-    "main.eb295c5f.js.map": "/tensai-landing/static/js/main.eb295c5f.js.map",
-    "488.0f11a6c2.chunk.js.map": "/tensai-landing/static/js/488.0f11a6c2.chunk.js.map"
+    "main.css": "/static/css/main.3b23a849.css",
+    "main.js": "/static/js/main.181b1666.js",
+    "static/js/488.0f11a6c2.chunk.js": "/static/js/488.0f11a6c2.chunk.js",
+    "static/media/logo.png": "/static/media/logo.675e7a6a76e11fb6b9ca.png",
+    "index.html": "/index.html",
+    "main.3b23a849.css.map": "/static/css/main.3b23a849.css.map",
+    "main.181b1666.js.map": "/static/js/main.181b1666.js.map",
+    "488.0f11a6c2.chunk.js.map": "/static/js/488.0f11a6c2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3b23a849.css",
-    "static/js/main.eb295c5f.js"
+    "static/js/main.181b1666.js"
   ]
 }
