@@ -6,12 +6,12 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#000000">
-    <meta name="description" content="Web site created using create-react-app">
+    <meta name="description" content="Tensai Consulting - AI & Data Strategy Experts">
     <link rel="apple-touch-icon" href="/logo192.png">
     <link rel="manifest" href="/manifest.json">
-    <title>Tensai</title>
+    <title>Tensai Consulting</title>
 
-    <!-- Load CSS before JavaScript for better UX -->
+    <!-- Load CSS first for faster rendering -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
 
     <!-- Defer JavaScript to prevent blocking rendering -->
@@ -33,13 +33,35 @@
             _iub.csConfiguration = {
                 "siteId": 3929468,
                 "cookiePolicyId": 19168425,
-                "lang": "en",
                 "storage": { "useSiteId": true }
             };
-            var iubScript = document.createElement("script");
-            iubScript.src = "https://cs.iubenda.com/autoblocking/3929468.js";
-            iubScript.async = true;
-            document.head.appendChild(iubScript);
+
+            _iub.csLangConfiguration = {
+                "en": { "cookiePolicyId": 19168425 },
+                "bg": { "cookiePolicyId": 27116431 },
+                "hr": { "cookiePolicyId": 71975302 },
+                "da": { "cookiePolicyId": 83884915 },
+                "en-GB": { "cookiePolicyId": 95848437 },
+                "nl": { "cookiePolicyId": 88747451 },
+                "sl": { "cookiePolicyId": 65720469 },
+                "et": { "cookiePolicyId": 51254869 },
+                "fr": { "cookiePolicyId": 87595921 },
+                "de": { "cookiePolicyId": 93491860 }
+            };
+
+            // Load Iubenda scripts asynchronously
+            function loadIubendaScript(src) {
+                var script = document.createElement("script");
+                script.src = src;
+                script.async = true;
+                document.head.appendChild(script);
+            }
+
+            loadIubendaScript("https://cs.iubenda.com/autoblocking/3929468.js");
+            loadIubendaScript("//cdn.iubenda.com/cs/tcf/stub-v2.js");
+            loadIubendaScript("//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js");
+            loadIubendaScript("//cdn.iubenda.com/cs/gpp/stub.js");
+            loadIubendaScript("//cdn.iubenda.com/cs/iubenda_cs.js");
         });
     </script>
 </head>
@@ -58,7 +80,7 @@
             class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
     </div>
 
-    <!-- Load Iubenda Scripts Asynchronously After Page Load -->
+    <!-- Load Iubenda Scripts After Page Load to Prevent Flickering -->
     <script type="text/javascript">
         window.addEventListener("load", function () {
             var iubScript = document.createElement("script");
