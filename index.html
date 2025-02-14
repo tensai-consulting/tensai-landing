@@ -26,13 +26,14 @@
         gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
-    <!-- ✅ Correct Iubenda Cookie Consent Configuration -->
+    <!-- ✅ Corrected Iubenda Cookie Consent Configuration -->
     <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
-            "siteId": 3929468,
-            "cookiePolicyId": 19168425,
+            "siteId": 3929468,  /* ✅ Ensure correct siteId */
+            "cookiePolicyId": 19168425,  /* ✅ Ensure correct policyId */
             "lang": "en",
+            "countryDetection": false, /* ✅ Show banner worldwide */
             "banner": {
                 "position": "bottom",
                 "acceptButtonDisplay": true,
@@ -46,37 +47,32 @@
                 "rejectButtonColor": "#ff4d4d",
                 "acceptButtonColor": "#4caf50"
             },
-            "consentOnScroll": false, /* Disable auto-consent on scroll */
             "enableTcf": true, /* GDPR */
             "enableGpp": true, /* CCPA */
+            "consentOnScroll": false, /* ✅ Do NOT automatically accept on scroll */
+            "purposes": ["1", "2", "3", "4"], /* ✅ Ensures the banner appears */
             "storage": { "useSiteId": true }
         };
 
-        // ✅ DEBUG MODE - FORCE CONSENT BANNER
+        // ✅ Force the banner to reload if it doesn't show
         window.addEventListener("load", function () {
-            if (typeof _iub !== 'undefined' && typeof _iub.cs !== 'undefined') {
-                console.log("✅ Iubenda loaded. Checking for banner...");
-
-                setTimeout(() => {
-                    if (typeof _iub.cs.api !== 'undefined' && typeof _iub.cs.api.openConsentWidget === 'function') {
-                        console.log("✅ Manually opening consent banner...");
-                        _iub.cs.api.openConsentWidget();
-                    } else {
-                        console.warn("❌ Iubenda banner still not visible. Possible script issue.");
-                    }
-                }, 3000); // Wait 3s to ensure scripts have loaded
-            } else {
-                console.error("❌ Iubenda script failed to initialize.");
-            }
+            setTimeout(() => {
+                if (typeof _iub !== 'undefined' && typeof _iub.cs.api !== 'undefined' && typeof _iub.cs.api.openConsentWidget === 'function') {
+                    console.log("✅ Manually triggering the consent banner...");
+                    _iub.cs.api.openConsentWidget();
+                } else {
+                    console.warn("❌ Iubenda banner still not visible. Possible script issue.");
+                }
+            }, 3000); // ✅ Wait 3s to ensure scripts have loaded
         });
     </script>
 
     <!-- ✅ Load Iubenda Scripts Properly -->
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 
     <!-- Fix Styling for Footer Privacy Links -->
     <style>
