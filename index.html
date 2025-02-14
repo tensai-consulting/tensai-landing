@@ -2,51 +2,71 @@
 <html lang="en">
 
 <head>
-    <script type="text/javascript">
-        var _iub = _iub || [];
-        _iub.csConfiguration = { "siteId": 3929468, "cookiePolicyId": 19168425, "lang": "en", "storage": { "useSiteId": true } };
-    </script>
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>tensai</title>
-    <script defer="defer" src="/static/js/main.181b1666.js"></script>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>Tensai</title>
+
+    <!-- Load CSS before JavaScript for better UX -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
+
+    <!-- Defer JavaScript to prevent blocking rendering -->
+    <script defer src="/static/js/main.181b1666.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-G1P5FLLY2G');
+    </script>
+
+    <!-- Iubenda Cookie Consent -->
+    <script type="text/javascript">
+        window.addEventListener("DOMContentLoaded", function () {
+            var _iub = _iub || [];
+            _iub.csConfiguration = {
+                "siteId": 3929468,
+                "cookiePolicyId": 19168425,
+                "lang": "en",
+                "storage": { "useSiteId": true }
+            };
+            var iubScript = document.createElement("script");
+            iubScript.src = "https://cs.iubenda.com/autoblocking/3929468.js";
+            iubScript.async = true;
+            document.head.appendChild(iubScript);
+        });
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-G1P5FLLY2G');
-</script>
-
-<body><noscript>You need to enable JavaScript to run this app.</noscript>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <a href="https://www.iubenda.com/privacy-policy/19168425"
-        class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy
-        Policy</a>
-    <script
-        type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
-    <a href="https://www.iubenda.com/privacy-policy/19168425/cookie-policy"
-        class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a>
-    <script
-        type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
-    <a href="https://www.iubenda.com/terms-and-conditions/19168425"
-        class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Terms and Conditions ">Terms and
-        Conditions</a>
-    <script
-        type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+
+    <!-- Iubenda Policies (Styled & Positioned Properly) -->
+    <div id="iubenda-container" style="text-align:center; padding: 10px; font-size:14px;">
+        <a href="https://www.iubenda.com/privacy-policy/19168425" class="iubenda-white iubenda-noiframe iubenda-embed"
+            title="Privacy Policy">Privacy Policy</a> |
+        <a href="https://www.iubenda.com/privacy-policy/19168425/cookie-policy"
+            class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a> |
+        <a href="https://www.iubenda.com/terms-and-conditions/19168425"
+            class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
+    </div>
+
+    <!-- Load Iubenda Scripts Asynchronously After Page Load -->
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            var iubScript = document.createElement("script");
+            iubScript.src = "https://cdn.iubenda.com/iubenda.js";
+            iubScript.async = true;
+            document.body.appendChild(iubScript);
+        });
+    </script>
 </body>
 
 </html>
