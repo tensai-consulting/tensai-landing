@@ -51,6 +51,24 @@
             "enableGpp": true, /* CCPA */
             "storage": { "useSiteId": true }
         };
+
+        // ✅ DEBUG MODE - FORCE CONSENT BANNER
+        window.addEventListener("load", function () {
+            if (typeof _iub !== 'undefined' && typeof _iub.cs !== 'undefined') {
+                console.log("✅ Iubenda loaded. Checking for banner...");
+
+                setTimeout(() => {
+                    if (typeof _iub.cs.api !== 'undefined' && typeof _iub.cs.api.openConsentWidget === 'function') {
+                        console.log("✅ Manually opening consent banner...");
+                        _iub.cs.api.openConsentWidget();
+                    } else {
+                        console.warn("❌ Iubenda banner still not visible. Possible script issue.");
+                    }
+                }, 3000); // Wait 3s to ensure scripts have loaded
+            } else {
+                console.error("❌ Iubenda script failed to initialize.");
+            }
+        });
     </script>
 
     <!-- ✅ Load Iubenda Scripts Properly -->
@@ -59,17 +77,6 @@
     <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8"></script>
-
-    <!-- ✅ Ensure Iubenda is Initialized Correctly -->
-    <script type="text/javascript">
-        window.addEventListener("load", function () {
-            if (typeof _iub !== 'undefined' && typeof _iub.csConfiguration !== 'undefined') {
-                console.log("✅ Iubenda is configured correctly and should display the banner.");
-            } else {
-                console.error("❌ Iubenda did not initialize properly.");
-            }
-        });
-    </script>
 
     <!-- Fix Styling for Footer Privacy Links -->
     <style>
