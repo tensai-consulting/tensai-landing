@@ -14,6 +14,9 @@
     <!-- Load CSS first for faster rendering -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
 
+    <!-- Defer JavaScript to prevent blocking rendering -->
+    <script defer src="/static/js/main.181b1666.js"></script>
+
     <!-- Google Analytics (Only Loads After Consent) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
     <script>
@@ -23,69 +26,32 @@
         gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
-    <!-- ✅ Iubenda Consent Management -->
-    <script type="text/javascript">
-        var _iub = _iub || [];
-        _iub.csConfiguration = {
-            "siteId": 3929468,
-            "cookiePolicyId": 19168425,
-            "lang": "en",
-            "banner": {
-                "position": "bottom",
-                "acceptButtonDisplay": true,
-                "customizeButtonDisplay": true,
-                "rejectButtonDisplay": true,
-                "backgroundOverlay": true,
-                "style": "clean",
-                "logo": "/logo192.png",
-                "textColor": "#000000",
-                "backgroundColor": "#f3f4f6",
-                "rejectButtonColor": "#ff4d4d",
-                "acceptButtonColor": "#4caf50"
-            },
-            "enableTcf": true,
-            "enableGpp": true,
-            "storage": { "useSiteId": true }
-        };
-    </script>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Iubenda Policies -->
-    <div id="iubenda-container">
-        <a href="https://www.iubenda.com/privacy-policy/19168425"
-            class="iubenda-white iubenda-noiframe iubenda-embed iubenda-popup" title="Privacy Policy">Privacy Policy</a>
-        |
-        <a href="https://www.iubenda.com/privacy-policy/19168425/cookie-policy"
-            class="iubenda-white iubenda-noiframe iubenda-embed iubenda-popup" title="Cookie Policy">Cookie Policy</a> |
-        <a href="https://www.iubenda.com/terms-and-conditions/19168425"
-            class="iubenda-white iubenda-noiframe iubenda-embed iubenda-popup" title="Terms and Conditions">Terms and
-            Conditions</a>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": { "background": "#000000" },
+        "button": { "background": "#4caf50" }
+      },
+      "theme": "classic",
+      "position": "bottom",
+      "content": {
+        "message": "This website uses cookies to ensure you get the best experience.",
+        "dismiss": "Got it!",
+        "link": "Learn more",
+        "href": "https://www.tensai.com/privacy-policy"
+      }
+    });
+  });
+</script>
 
-    <!-- ✅ Load Iubenda Scripts -->
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" defer></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" defer></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" defer></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" defer></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" defer></script>
-
-    <!-- ✅ Debugging for Consent Banner -->
-    <script type="text/javascript">
-        window.addEventListener("load", function () {
-            setTimeout(() => {
-                if (typeof _iub !== 'undefined' && typeof _iub.cs !== 'undefined' && typeof _iub.cs.api !== 'undefined') {
-                    console.log("✅ Manually opening consent banner...");
-                    _iub.cs.api.openConsentWidget();
-                } else {
-                    console.warn("❌ Iubenda banner still not visible.");
-                }
-            }, 5000); // Wait 5s to ensure scripts have loaded
-        });
-    </script>
 </body>
 
 </html>
