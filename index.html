@@ -9,42 +9,35 @@
     <meta name="description" content="Tensai Consulting - AI & Data Strategy Experts">
     <link rel="apple-touch-icon" href="/logo192.png">
     <link rel="manifest" href="/manifest.json">
-    <style>
-        /* Reduce the size of the Cookiebot banner while keeping it fully visible */
-        #CybotCookiebotDialog {
-            max-width: 80% !important;
-            /* Scale width to fit nicely */
-            font-size: 14px !important;
-            /* Slightly smaller text but readable */
-            padding: 8px 15px !important;
-            /* Adjust padding to keep it compact */
-            bottom: 15px !important;
-            /* Keep it visible above the page bottom */
-            left: 50% !important;
-            /* Center horizontally */
-            transform: translateX(-50%) !important;
-            /* Ensure proper centering */
-            border-radius: 8px !important;
-            /* Smooth edges */
-            opacity: 0.9 !important;
-            /* Slight transparency to blend with the design */
-        }
+ <style>
+    /* Keep Cookiebot banner at the bottom but make it smaller */
+    #CybotCookiebotDialog {
+        width: 60% !important;  /* Reduce width but keep it visible */
+        font-size: 14px !important; /* Smaller but readable text */
+        padding: 10px !important; /* Reduce padding */
+        bottom: 0px !important; /* Keep it at the bottom */
+        left: 50% !important; /* Center horizontally */
+        transform: translateX(-50%) !important; /* Ensure proper centering */
+        border-radius: 8px !important; /* Smooth edges */
+        opacity: 1 !important; /* Ensure full visibility */
+        position: fixed !important; /* Prevent it from moving */
+        z-index: 999999 !important; /* Ensure it stays on top */
+    }
 
-        /* Adjust buttons (Deny, Accept) */
-        #CybotCookiebotDialogBodyButtonAccept,
-        #CybotCookiebotDialogBodyButtonDecline {
-            font-size: 12px !important;
-            padding: 6px 12px !important;
-            margin: 5px !important;
-        }
+    /* Make buttons smaller */
+    #CybotCookiebotDialogBodyButtonAccept,
+    #CybotCookiebotDialogBodyButtonDecline {
+        font-size: 12px !important;
+        padding: 5px 12px !important;
+        margin: 5px !important;
+    }
 
-        /* Reduce "Show details" section spacing but keep it accessible */
-        #CybotCookiebotDialogBody {
-            font-size: 12px !important;
-            line-height: 1.4 !important;
-            /* Improve readability */
-        }
-    </style>
+    /* Adjust "Show details" section */
+    #CybotCookiebotDialogBody {
+        font-size: 12px !important;
+        line-height: 1.4 !important; /* Keep readability */
+    }
+</style>
 
     <title>Tensai Consulting</title>
 
