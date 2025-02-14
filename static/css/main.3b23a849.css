@@ -475,34 +475,35 @@ video {
     }
 }
 
-/* Styled Consent Preferences Button */
-#consent-preferences {
+/* Styled Consent Preferences Button (But Keeps Termly Working) */
+/* Super Small & Non-Intrusive Consent Preferences Button */
+#consent-preferences.termly-display-preferences {
     position: fixed;
-    bottom: 10px;
-    /* Slightly above the bottom */
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     background: #f5f5f5;
-    /* Match the site’s background */
-    padding: 8px 16px;
-    /* Button-like padding */
-    font-size: 14px;
-    color: #1f2937;
-    /* Dark gray text */
-    border-radius: 8px;
-    /* Rounded edges */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Light button shadow */
-    opacity: 0.8;
+    padding: 4px 10px;
+    /* Smaller padding */
+    font-size: 12px;
+    /* Smaller text */
+    color: #4b5563;
+    /* Softer dark gray */
+    border-radius: 5px;
+    /* Less rounded */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    /* Subtle shadow */
+    opacity: 0.6;
+    /* Make it less noticeable */
     transition: all 0.3s ease-in-out;
 }
 
-/* Hover effect for better interaction */
-#consent-preferences:hover {
+/* Slight hover effect for accessibility */
+#consent-preferences.termly-display-preferences:hover {
     opacity: 1;
     background: #e5e7eb;
-    /* Slightly darker background */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    /* Slightly stronger shadow */
+    /* Slightly darker on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Light lift effect */
 }
 /*# sourceMappingURL=main.3b23a849.css.map*/

@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="/logo192.png">
     <link rel="manifest" href="/manifest.json">
 
-    
+
 
     <title>Tensai Consulting</title>
 
@@ -21,7 +21,9 @@
     <script defer src="/static/js/main.181b1666.js"></script>
 
     <script type="text/javascript"
-        src="https://app.termly.io/resource-blocker/46958210-aa15-4aa7-8219-a8ea3dc033c7?autoBlock=on"></script>
+        src="https://app.termly.io/resource-blocker/46958210-aa15-4aa7-8219-a8ea3dc033c7?autoBlock=on"
+        onload="console.log('✅ Termly Script Loaded');">
+        </script>
 
     <!-- Google Analytics (Only Loads After Consent) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
@@ -37,11 +39,9 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
-<a href="#" id="consent-preferences">Consent Preferences</a>
-
-
-
+    <a href="#" id="consent-preferences" class="termly-display-preferences">
+        Consent Preferences
+    </a>
 </body>
 
 </html>
