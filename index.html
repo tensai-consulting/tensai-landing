@@ -14,9 +14,6 @@
     <!-- Load CSS first for faster rendering -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
 
-    <!-- Defer JavaScript to prevent blocking rendering -->
-    <script defer src="/static/js/main.181b1666.js"></script>
-
     <!-- Google Analytics (Only Loads After Consent) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
     <script>
@@ -26,14 +23,13 @@
         gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
-    <!-- ✅ Corrected Iubenda Cookie Consent Configuration -->
+    <!-- ✅ Iubenda Consent Management -->
     <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
-            "siteId": 3929468,  /* ✅ Ensure correct siteId */
-            "cookiePolicyId": 19168425,  /* ✅ Ensure correct policyId */
+            "siteId": 3929468,
+            "cookiePolicyId": 19168425,
             "lang": "en",
-            "countryDetection": false, /* ✅ Show banner worldwide */
             "banner": {
                 "position": "bottom",
                 "acceptButtonDisplay": true,
@@ -47,70 +43,18 @@
                 "rejectButtonColor": "#ff4d4d",
                 "acceptButtonColor": "#4caf50"
             },
-            "enableTcf": true, /* GDPR */
-            "enableGpp": true, /* CCPA */
-            "consentOnScroll": false, /* ✅ Do NOT automatically accept on scroll */
-            "purposes": ["1", "2", "3", "4"], /* ✅ Ensures the banner appears */
+            "enableTcf": true,
+            "enableGpp": true,
             "storage": { "useSiteId": true }
         };
-
-        // ✅ Force the banner to reload if it doesn't show
-        window.addEventListener("load", function () {
-            setTimeout(() => {
-                if (typeof _iub !== 'undefined' && typeof _iub.cs.api !== 'undefined' && typeof _iub.cs.api.openConsentWidget === 'function') {
-                    console.log("✅ Manually triggering the consent banner...");
-                    _iub.cs.api.openConsentWidget();
-                } else {
-                    console.warn("❌ Iubenda banner still not visible. Possible script issue.");
-                }
-            }, 3000); // ✅ Wait 3s to ensure scripts have loaded
-        });
     </script>
-
-    <!-- ✅ Load Iubenda Scripts Properly -->
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-
-    <!-- Fix Styling for Footer Privacy Links -->
-    <style>
-        html,
-        body {
-            overflow-x: hidden;
-            background-color: #f5f5f5;
-        }
-
-        #iubenda-container {
-            text-align: center;
-            padding: 10px;
-            font-size: 14px;
-            background: #f3f4f6;
-            color: #000000;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            z-index: 9999;
-        }
-
-        .iubenda-white {
-            color: #000000 !important;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .iubenda-white:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- ✅ Iubenda Policies (Opens in Popups Instead of Redirecting) -->
+    <!-- Iubenda Policies -->
     <div id="iubenda-container">
         <a href="https://www.iubenda.com/privacy-policy/19168425"
             class="iubenda-white iubenda-noiframe iubenda-embed iubenda-popup" title="Privacy Policy">Privacy Policy</a>
@@ -122,6 +66,26 @@
             Conditions</a>
     </div>
 
+    <!-- ✅ Load Iubenda Scripts -->
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" defer></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" defer></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" defer></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" defer></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" defer></script>
+
+    <!-- ✅ Debugging for Consent Banner -->
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                if (typeof _iub !== 'undefined' && typeof _iub.cs !== 'undefined' && typeof _iub.cs.api !== 'undefined') {
+                    console.log("✅ Manually opening consent banner...");
+                    _iub.cs.api.openConsentWidget();
+                } else {
+                    console.warn("❌ Iubenda banner still not visible.");
+                }
+            }, 5000); // Wait 5s to ensure scripts have loaded
+        });
+    </script>
 </body>
 
 </html>
