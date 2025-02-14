@@ -41,8 +41,8 @@
                 "backgroundOverlay": true,
                 "style": "clean",
                 "logo": "/logo192.png",
-                "textColor": "#ffffff",  /* White text */
-                "backgroundColor": "#121212",  /* Darker background */
+                "textColor": "#000000", /* Your text color */
+                "backgroundColor": "#f3f4f6", /* Your background color */
                 "rejectButtonColor": "#ff4d4d",
                 "acceptButtonColor": "#4caf50"
             },
@@ -51,14 +51,21 @@
             "enableGpp": true, /* Ensure it works in California (CCPA) */
             "storage": { "useSiteId": true }
         };
+
+        // Ensure the consent banner is displayed
+        window.onload = function () {
+            if (typeof _iub !== 'undefined' && _iub.csConfiguration) {
+                _iub.csConfiguration.banner.show();
+            }
+        };
     </script>
 
     <!-- Load Iubenda Scripts -->
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" async></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8"></script>
 
     <!-- Fix Styling for Footer Privacy Links -->
     <style>
@@ -73,9 +80,9 @@
             padding: 10px;
             font-size: 14px;
             background: #f3f4f6;
-            /* Background matching the site */
+            /* Your chosen background color */
             color: #000000;
-            /* Dark text for contrast */
+            /* Your chosen text color */
             position: fixed;
             width: 100%;
             bottom: 0;
@@ -83,7 +90,8 @@
         }
 
         .iubenda-white {
-            color: #f3f4f6 !important;
+            color: #000000 !important;
+            /* Ensuring text color */
             text-decoration: none;
         }
 
@@ -100,9 +108,9 @@
     <!-- Iubenda Policies (Fixed Styling) -->
     <div id="iubenda-container">
         <a href="https://www.iubenda.com/privacy-policy/19168425" class="iubenda-white iubenda-noiframe iubenda-embed"
-            title="Privacy Policy">Privacy Policy</a>
+            title="Privacy Policy">Privacy Policy</a> |
         <a href="https://www.iubenda.com/privacy-policy/19168425/cookie-policy"
-            class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+            class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a> |
         <a href="https://www.iubenda.com/terms-and-conditions/19168425"
             class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
     </div>
@@ -110,12 +118,14 @@
     <!-- Fix: Load Iubenda After Page Load -->
     <script type="text/javascript">
         window.addEventListener("load", function () {
-            var iubScript = document.createElement("script");
-            iubScript.src = "https://cdn.iubenda.com/iubenda.js";
-            iubScript.async = true;
-            document.body.appendChild(iubScript);
+            setTimeout(function () {
+                if (typeof _iub !== 'undefined' && _iub.csConfiguration) {
+                    _iub.csConfiguration.banner.show();
+                }
+            }, 2000);
         });
     </script>
+
 </body>
 
 </html>
