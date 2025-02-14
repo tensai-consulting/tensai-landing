@@ -11,67 +11,82 @@
     <link rel="manifest" href="/manifest.json">
     <title>Tensai Consulting</title>
 
-    <!-- Load CSS first for faster rendering -->
+    <!-- Load CSS first to prevent layout shifts -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
 
     <!-- Defer JavaScript to prevent blocking rendering -->
     <script defer src="/static/js/main.181b1666.js"></script>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (Only Loads After Consent) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1P5FLLY2G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-G1P5FLLY2G');
+        gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
     <!-- Iubenda Cookie Consent -->
     <script type="text/javascript">
-        window.addEventListener("DOMContentLoaded", function () {
-            var _iub = _iub || [];
-            _iub.csConfiguration = {
-                "siteId": 3929468,
-                "cookiePolicyId": 19168425,
-                "storage": { "useSiteId": true }
-            };
-
-            _iub.csLangConfiguration = {
-                "en": { "cookiePolicyId": 19168425 },
-                "bg": { "cookiePolicyId": 27116431 },
-                "hr": { "cookiePolicyId": 71975302 },
-                "da": { "cookiePolicyId": 83884915 },
-                "en-GB": { "cookiePolicyId": 95848437 },
-                "nl": { "cookiePolicyId": 88747451 },
-                "sl": { "cookiePolicyId": 65720469 },
-                "et": { "cookiePolicyId": 51254869 },
-                "fr": { "cookiePolicyId": 87595921 },
-                "de": { "cookiePolicyId": 93491860 }
-            };
-
-            // Load Iubenda scripts asynchronously
-            function loadIubendaScript(src) {
-                var script = document.createElement("script");
-                script.src = src;
-                script.async = true;
-                document.head.appendChild(script);
-            }
-
-            loadIubendaScript("https://cs.iubenda.com/autoblocking/3929468.js");
-            loadIubendaScript("//cdn.iubenda.com/cs/tcf/stub-v2.js");
-            loadIubendaScript("//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js");
-            loadIubendaScript("//cdn.iubenda.com/cs/gpp/stub.js");
-            loadIubendaScript("//cdn.iubenda.com/cs/iubenda_cs.js");
-        });
+        var _iub = _iub || [];
+        _iub.csConfiguration = {
+            "siteId": 3929468,
+            "cookiePolicyId": 19168425,
+            "lang": "en",
+            "banner": {
+                "position": "bottom",  /* Prevents unexpected layout shifts */
+                "acceptButtonDisplay": true,
+                "customizeButtonDisplay": true,
+                "rejectButtonDisplay": true,
+                "backgroundOverlay": true,
+                "style": "clean",  /* Ensures consistent styling */
+                "logo": "/logo192.png",
+                "textColor": "#ffffff",
+                "backgroundColor": "#000000",
+                "rejectButtonColor": "#ff4d4d",
+                "acceptButtonColor": "#4caf50"
+            },
+            "storage": { "useSiteId": true }
+        };
     </script>
+
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" async></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- Hide Scrollbar Temporarily to Prevent Flicker -->
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        #iubenda-container {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            background: #000000;
+            color: #ffffff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 9999;
+        }
+
+        .iubenda-white {
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Iubenda Policies (Styled & Positioned Properly) -->
-    <div id="iubenda-container" style="text-align:center; padding: 10px; font-size:14px;">
+    <!-- Iubenda Policies (Properly Styled & Fixed) -->
+    <div id="iubenda-container">
         <a href="https://www.iubenda.com/privacy-policy/19168425" class="iubenda-white iubenda-noiframe iubenda-embed"
             title="Privacy Policy">Privacy Policy</a> |
         <a href="https://www.iubenda.com/privacy-policy/19168425/cookie-policy"
@@ -80,7 +95,7 @@
             class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
     </div>
 
-    <!-- Load Iubenda Scripts After Page Load to Prevent Flickering -->
+    <!-- Fix: Ensure Iubenda Scripts Load After Everything -->
     <script type="text/javascript">
         window.addEventListener("load", function () {
             var iubScript = document.createElement("script");
