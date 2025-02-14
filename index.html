@@ -26,7 +26,7 @@
         gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
-    <!-- Iubenda Cookie Consent Banner - Fixed -->
+    <!-- ✅ Correctly Configured Iubenda Consent Banner -->
     <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
@@ -41,26 +41,19 @@
                 "backgroundOverlay": true,
                 "style": "clean",
                 "logo": "/logo192.png",
-                "textColor": "#000000", /* Your text color */
-                "backgroundColor": "#f3f4f6", /* Your background color */
+                "textColor": "#000000",
+                "backgroundColor": "#f3f4f6",
                 "rejectButtonColor": "#ff4d4d",
                 "acceptButtonColor": "#4caf50"
             },
             "consentOnScroll": false, /* Disable auto-consent on scroll */
-            "enableTcf": true, /* Ensure it works in EU (GDPR) */
-            "enableGpp": true, /* Ensure it works in California (CCPA) */
+            "enableTcf": true, /* GDPR */
+            "enableGpp": true, /* CCPA */
             "storage": { "useSiteId": true }
-        };
-
-        // Ensure the consent banner is displayed
-        window.onload = function () {
-            if (typeof _iub !== 'undefined' && _iub.csConfiguration) {
-                _iub.csConfiguration.banner.show();
-            }
         };
     </script>
 
-    <!-- Load Iubenda Scripts -->
+    <!-- ✅ Load Iubenda Scripts (Ensured to Load Correctly) -->
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
@@ -80,9 +73,7 @@
             padding: 10px;
             font-size: 14px;
             background: #f3f4f6;
-            /* Your chosen background color */
             color: #000000;
-            /* Your chosen text color */
             position: fixed;
             width: 100%;
             bottom: 0;
@@ -91,7 +82,6 @@
 
         .iubenda-white {
             color: #000000 !important;
-            /* Ensuring text color */
             text-decoration: none;
         }
 
@@ -114,17 +104,6 @@
         <a href="https://www.iubenda.com/terms-and-conditions/19168425"
             class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
     </div>
-
-    <!-- Fix: Load Iubenda After Page Load -->
-    <script type="text/javascript">
-        window.addEventListener("load", function () {
-            setTimeout(function () {
-                if (typeof _iub !== 'undefined' && _iub.csConfiguration) {
-                    _iub.csConfiguration.banner.show();
-                }
-            }, 2000);
-        });
-    </script>
 
 </body>
 
