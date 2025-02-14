@@ -11,7 +11,7 @@
     <link rel="manifest" href="/manifest.json">
     <title>Tensai Consulting</title>
 
-    <!-- Load CSS first to prevent layout shifts -->
+    <!-- Load CSS first for faster rendering -->
     <link href="/static/css/main.3b23a849.css" rel="stylesheet">
 
     <!-- Defer JavaScript to prevent blocking rendering -->
@@ -26,7 +26,7 @@
         gtag('config', 'G-G1P5FLLY2G', { 'anonymize_ip': true });
     </script>
 
-    <!-- Iubenda Cookie Consent -->
+    <!-- Iubenda Cookie Consent Banner - Fixed -->
     <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
@@ -34,41 +34,48 @@
             "cookiePolicyId": 19168425,
             "lang": "en",
             "banner": {
-                "position": "bottom",  /* Prevents unexpected layout shifts */
+                "position": "bottom",
                 "acceptButtonDisplay": true,
                 "customizeButtonDisplay": true,
                 "rejectButtonDisplay": true,
                 "backgroundOverlay": true,
-                "style": "clean",  /* Ensures consistent styling */
+                "style": "clean",
                 "logo": "/logo192.png",
-                "textColor": "#ffffff",
-                "backgroundColor": "#000000",
+                "textColor": "#ffffff",  /* White text */
+                "backgroundColor": "#121212",  /* Darker background */
                 "rejectButtonColor": "#ff4d4d",
                 "acceptButtonColor": "#4caf50"
             },
+            "consentOnScroll": false, /* Disable auto-consent on scroll */
+            "enableTcf": true, /* Ensure it works in EU (GDPR) */
+            "enableGpp": true, /* Ensure it works in California (CCPA) */
             "storage": { "useSiteId": true }
         };
     </script>
 
+    <!-- Load Iubenda Scripts -->
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3929468.js" async></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" async></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js" async></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js" async></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 
-    <!-- Hide Scrollbar Temporarily to Prevent Flicker -->
+    <!-- Fix Styling for Footer Privacy Links -->
     <style>
         html,
         body {
             overflow-x: hidden;
+            background-color: #f5f5f5;
         }
 
         #iubenda-container {
             text-align: center;
             padding: 10px;
             font-size: 14px;
-            background: #000000;
+            background: #121212;
+            /* Dark background matching the site */
             color: #ffffff;
+            /* White text for contrast */
             position: fixed;
             width: 100%;
             bottom: 0;
@@ -77,6 +84,11 @@
 
         .iubenda-white {
             color: #ffffff !important;
+            text-decoration: none;
+        }
+
+        .iubenda-white:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -85,7 +97,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Iubenda Policies (Properly Styled & Fixed) -->
+    <!-- Iubenda Policies (Fixed Styling) -->
     <div id="iubenda-container">
         <a href="https://www.iubenda.com/privacy-policy/19168425" class="iubenda-white iubenda-noiframe iubenda-embed"
             title="Privacy Policy">Privacy Policy</a> |
@@ -95,7 +107,7 @@
             class="iubenda-white iubenda-noiframe iubenda-embed" title="Terms and Conditions">Terms and Conditions</a>
     </div>
 
-    <!-- Fix: Ensure Iubenda Scripts Load After Everything -->
+    <!-- Fix: Load Iubenda After Page Load -->
     <script type="text/javascript">
         window.addEventListener("load", function () {
             var iubScript = document.createElement("script");
